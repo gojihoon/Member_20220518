@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Member">
+    <insert id="save" parameterType="member">
+        insert into member(memberId, memberPassword, memberName,memberAge, memberPhone) values(#{memberId},#{memberPassword},#{memberName},#{memberAge},#{memberPhone})
+    </insert>
+<!--    selectList하면 여러개의 값을 가져옴-->
+    <select id="findAll" resultType="member">
+        select*from member
+    </select>
+    <!--selectOne해서 값을 가져오는 곳-->
+    <select id="login" parameterType="member" resultType="member">
+        select*from member where memberId=#{memberId} and memberPassword=#{memberPassword}
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
